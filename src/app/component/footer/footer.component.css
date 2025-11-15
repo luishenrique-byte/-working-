@@ -1,52 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 footer {
     display: flex;
-    height: 433px;
+    height: 450px;
     padding: 14px 51px;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    gap: 46px;
+    gap: 45px;
     align-self: stretch;
-    background: black;
+    background: #2D3748;
 }
 
+/* CSS PARTE DE CIMA FOOTER */
 #divFooter_cima {
+    width: 100%;
     display: flex;
     align-items: center;
 }
-.divPalavras {
+
+.Divisao {
+    flex: 1;
     display: flex;
-    width: 480px;
     height: 280px;
-    padding: 0 104px;
     justify-content: center;
     align-items: center;
 }
+
+.Divisao.Projeto {
+    border-right: 3px solid #FFF;
+}
+
+/* DIV's APeNAS LINKS E TEXTO */
 #quemSomos {
     display: flex;
     width: 272px;
     height: 280px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 13px;
+    gap: 15px;
     flex-shrink: 0;
 }
-#quemSomos h5 {
-    color: #FFF;
-    font-family: Nunito;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-}
-#quemSomos p {
-    color: #FFF;
-    font-family: Nunito;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-}
+
 #encontreProjetos {
     display: flex;
     width: 250px;
@@ -56,19 +56,197 @@ footer {
     gap: 15px;
     flex-shrink: 0;
 }
+
+#quemSomos h5,
 #encontreProjetos h5 {
     color: #FFF;
-    font-family: Nunito;
     font-size: 24px;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
 }
-#encontreProjetos p {
+
+#quemSomos a,
+#encontreProjetos a {
+    text-decoration: none;
     color: #FFF;
-    font-family: Nunito;
     font-size: 24px;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 300;
     line-height: normal;
+}
+
+/* CSS DOS COMENTÁRIOS */
+.Divisao.Vitrine {
+    padding: 0 60px;
+}
+
+#vitrineComent {
+    display: flex;
+    width: 360px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 62px;
+    flex-shrink: 0;
+}
+
+.feedback {
+    width: 100%;
+    height: 100%;
+    padding: 11px 17px;
+    border-radius: 25px;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+/* CSS APENAS DO CONTEUDO */
+.categoria {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.categoria img {
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1/1;
+}
+
+.categoria h6 {
+    color: #2D3748;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#comentario {
+
+    display: flex;
+    height: 50%;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    color: #2D3748;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.review-card {
+    display: flex;
+    width: 180px;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.review-avatar {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+}
+
+.review-avatar img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+
+}
+
+.review-content {
+    display: flex;
+    flex-direction: column;
+    width: 110px;
+    height: 50px;
+    flex-shrink: 0;
+    gap: 0;
+}
+
+.review-content p {
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+/* CSS DO FOOTER BAIXO */
+.divFooter_baixo {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+}
+.divFooter_baixo a{
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+}
+.social-icons{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.social-icons a{
+    width: 30px;
+    height: auto;
+    
+}
+
+.social-icons a:hover {
+  color: #cccccc; /* Muda a cor levemente ao passar o mouse */
+}
+
+
+
+/* ================================ */
+.Divisao.Vitrine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px; /* Reduz o padding para dar espaço aos botões */
+}
+
+/* 2. Estilo dos botões de navegação */
+.slider-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #FFF; /* Cor das setas */
+    font-size: 28px; /* Tamanho das setas */
+    padding: 10px; /* Aumenta a área de clique */
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.slider-btn:hover {
+    opacity: 1;
+}
+
+/* 3. A ANIMAÇÃO DE FADE (O "SLIDE") */
+
+/* O 'palco' precisa esconder o conteúdo que transborda */
+#vitrineComent {
+    overflow: hidden;
+}
+
+/* O .feedback agora tem uma transição de opacidade */
+.feedback {
+    /* Duração da animação: 300ms */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Classe que o .ts adiciona para fazer o fade-out */
+.feedback.fade-out {
+    opacity: 0;
 }
