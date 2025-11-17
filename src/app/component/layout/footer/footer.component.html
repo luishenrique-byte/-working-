@@ -1,0 +1,78 @@
+<footer>
+    <div id="divFooter_cima">
+        <div class="Divisao QM">
+            <div id="quemSomos">
+                <h5>Quem Somos?</h5>
+                <a href="#">Sobre Nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termo de Serviços</a>
+                <a href="#">Configuração de Cookies</a>
+            </div>
+        </div>
+        <div class="Divisao Projeto">
+            <div id="encontreProjetos">
+                <h5>Encontre Projetos</h5>
+                <a href="#">TI e Programação</a>
+                <a href="#">Desing & Multimedia</a>
+                <a href="#">Maketing e Vendas</a>
+                <a href="#">Suporte Adminstrativo</a>
+                <a href="#">Dados</a>
+            </div>
+        </div>
+        
+        <div class="Divisao Vitrine" (mouseenter)="stopAutoSlide()" (mouseleave)="startAutoSlide()">
+            <div id="vitrineComent">
+
+                <div class="feedback" [class.fade-out]="isFading"  >
+
+                    <div class="categoria">
+                        <img [src]="feedbacks[currentIndex].categoriaIcone" alt="">
+                        <h6>{{ feedbacks[currentIndex].categoriaNome }}</h6>
+                    </div>
+
+                    <p id="comentario">
+                        “{{ feedbacks[currentIndex].comentario }}”
+                    </p>
+
+                    <div class="review-card">
+                        <div class="review-avatar">
+                            <img [src]="feedbacks[currentIndex].avatar"
+                                [alt]="'Foto de ' + feedbacks[currentIndex].nome">
+                        </div>
+
+                        <div class="review-content">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="review-name">{{ feedbacks[currentIndex].nome }},</p>
+                            <p class="review-date">{{ feedbacks[currentIndex].data }}.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divFooter_baixo">
+        <a href="#" class="copy">&copy; WORKING</a>
+        <div class="social-icons">
+            <a href="https://instagram.com/..." target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/..." target="_blank">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://facebook.com/..." target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://linkedin.com/in/..." target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</footer>

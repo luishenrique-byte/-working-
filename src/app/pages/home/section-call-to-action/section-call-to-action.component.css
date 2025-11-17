@@ -1,0 +1,109 @@
+.hero-section {
+    background-color: #2D3748; /* Mesma cor do seu footer */
+    color: #FFF;
+    padding: 80px 50px; /* Espaço interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ocupa quase a tela toda */
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 50px;
+  }
+  
+  /* Texto */
+  .hero-text {
+    flex: 1; /* Ocupa metade do espaço */
+    max-width: 600px;
+  }
+  
+  h1 {
+    font-size: 3.5rem; /* Grande e impactante */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  
+  .destaque {
+    color: #FFD700; /* Seu amarelo ouro */
+  }
+  
+  p {
+    font-size: 1.2rem;
+    color: #A0AEC0; /* Um cinza claro para leitura */
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  
+  /* Botões */
+  .hero-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  button {
+    padding: 15px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px; /* Botões redondinhos */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-3px); /* Efeito de "pulo" igual aos ícones */
+  }
+  
+  .btn-primary {
+    background-color: #FFD700;
+    color: #2D3748;
+    border: none;
+  }
+  
+  .btn-outline {
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #FFD700;
+  }
+  
+  .btn-outline:hover {
+    background-color: #FFD700;
+    color: #2D3748;
+  }
+  
+  /* Imagem */
+  .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hero-image img {
+    border-radius: 25px;
+    max-width: 100%;
+    height: auto;
+    /* Um efeito legal na imagem */
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); 
+  }
+  
+  /* Logos (Trust Badges) */
+  .trust-badges {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #718096;
+    font-size: 0.9rem;
+  }
+  
+  .logos {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5rem; /* Tamanho dos ícones das empresas */
+  }

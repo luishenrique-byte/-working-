@@ -5,6 +5,5 @@ export interface Feedback {
     avatar: string;
     nome: string;
     data: string;
-
     rating: number;
 }
