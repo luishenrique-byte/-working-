@@ -1,0 +1,64 @@
+/* Garante que a section ocupe o espaço certo */
+.carousel-section {
+    width: 100%;
+    position: relative;
+    background-color: #2D3748;
+}
+
+/* Configuração da Imagem de Fundo */
+.img-wrapper {
+    position: relative;
+    height: 90vh; /* 90% da altura da tela (ajuste se quiser menos) */
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta a imagem pra não esticar */
+    object-position: top center;
+}
+
+/* A Sombra Escura por cima da foto (Melhor que filter brightness) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Preto com 50% de transparência */
+}
+
+/* O Texto e Botão */
+.carousel-caption {
+    bottom: 20%; /* Sobe o texto */
+    z-index: 10;
+}
+
+.carousel-caption h3 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #FFF; /* Branco */
+    margin-bottom: 1rem;
+}
+
+.carousel-caption p {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.btn-cta {
+    margin-top: 20px;
+    padding: 15px 40px;
+    background-color: #FFD700;
+    color: #2D3748;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+}

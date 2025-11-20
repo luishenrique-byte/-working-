@@ -1,5 +1,20 @@
 <section>
-    <!--
-        Dar continuidade a primeira section do site1
-    -->
+    <ngb-carousel [interval]="3000" [pauseOnHover]="true" [showNavigationArrows]="true">
+        
+        <ng-template ngbSlide *ngFor="let slide of slides">
+            
+            <div class="img-wrapper">
+                <img [src]="slide.image" [alt]="slide.titulo">
+                
+                <div class="overlay"></div>
+            </div>
+
+            <div class="carousel-caption">
+                <h3>{{ slide.titulo }}</h3>
+                <p>{{ slide.texto }}</p>
+            </div>
+
+        </ng-template>
+
+    </ngb-carousel>
 </section>
