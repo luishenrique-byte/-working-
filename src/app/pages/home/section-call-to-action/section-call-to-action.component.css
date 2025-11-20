@@ -91,7 +91,18 @@
     height: auto;
     /* Um efeito legal na imagem */
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); 
+    opacity: 0;
+    /* Começa 50px PARA CIMA da posição real */
+    transform: translateY(50px);
+    
+    /* Prepara a animação para durar 1 segundo */
+    transition: opacity 1s ease-out, transform 1s ease-out;
   }
+
+  .hero-image img.aparecer {
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Desce para a posição original */
+}
   
   /* Logos (Trust Badges) */
   .trust-badges {
