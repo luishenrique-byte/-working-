@@ -39,6 +39,7 @@ header{
     border-radius: 50px;
     padding: 5px 10px;
     transition: transform 0.2s ease;
+    border: 2px solid #F5D12D;
 }
 
 .login_button:hover{
@@ -47,7 +48,6 @@ header{
 }
 
 #fazer_login_btn {
-    border: 2px solid #F5D12D;
     background: none;
     color: #fff;
 }
@@ -60,26 +60,53 @@ header{
     background: #F5D12D;
     color: #2D3748;
 }
-/*zxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
+
+/* LUPA PARA PESQUISAR */
 #lupa {
     width: 50px;
     height: auto;
     fill: #F5D12D;
-    transition: fill 0.2s ease; 
+
+    transform-origin: center center;
+    transform-box: fill-box;
+
     filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), fill 0.3s ease
 }
 
 #lupa:hover {
-    fill: #d5b31c;
-    cursor: pointer;
+    transform: scale(1.2) rotate(15deg);
 }
 
+/* MENU OCULTO */
 #menu_burguer {
-    fill: #F5D12D;
-    transition: fill 0.2s ease; 
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
-}
-#menu_burguer:hover{
-    fill: #d5b31c;
+    overflow: visible;
     cursor: pointer;
 }
+#menu_burguer .bar {
+    fill: #F5D12D; /* Sua cor amarela */
+    
+    /* Define o ponto de giro na DIREITA e no CENTRO vertical da barra */
+    transform-origin: right center;
+    transform-box: fill-box; /* Garante que o giro seja relativo à barra, não ao SVG inteiro */
+    
+    /* Prepara a animação */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Um efeito elástico suave */
+    
+}
+
+/* 2. O que acontece (Giro de 10 graus) */
+#menu_burguer.ativo .bar {
+    transform: rotate(10deg);
+}
+
+/*EFEITO DE CASCATA QUANDO FECHA O SIDEBAR*/
+#menu_burguer .top {transition-delay: 0.2s;}
+#menu_burguer .mid{transition-delay: 0.1s;}
+#menu_burguer .bot{transition-delay: 0s;}
+
+/*EFEITO DE CASCATA QUANDO ABRE O SIDEBAR*/
+#menu_burguer.ativo .top {transition-delay: 0s;}
+#menu_burguer.ativo .mid{transition-delay: 0.1s;}
+#menu_burguer.ativo .bot{transition-delay: 0.2s;}
+
