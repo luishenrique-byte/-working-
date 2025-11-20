@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+.sidebar {
+    display: flex;
+    justify-content: center;
+    /* Mudei para FIXED para acompanhar a rolagem da tela */
+    position: fixed; 
+    right: 0;
+    width: 20%; 
+    height: 30%; 
+    
+    background-color: #F5D12D;
+    border-bottom-left-radius: 20px;
+    z-index: 1000;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    transition: 
+        opacity 0.5s ease 0s, /* Demora 0.5s para sumir, APÓS esperar 2s */
+        visibility 0s linear 2.5s;
+}
+
+/* 2. O Estado "Ativo" (Aparecendo) */
+/* LEIA ASSIM: "Quando o hospedeiro (<app-sidebar-home>) tiver a classe 'ativo', 
+   mude a classe .sidebar lá dentro" */
+:host(.ativo) .sidebar {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    
+    /* QUANDO ABRE: O delay vira 0s (Imediato) */
+    transition: 
+        opacity 0.4s ease 0s, 
+        visibility 0s linear 0s;
+}
+.sidebar nav {
+    width: 90%;
+    padding: 15px 15% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-between;
+}
+
+.opcao {
+    display: flex;
+    justify-content: end;
+    opacity: 0;
+    transform: translateY(20px); /* Começa 20px abaixo */
+    transition: all 0.3s ease;   /* Animação suave */
+}
+
+/* Quando a sidebar abre, os itens aparecem */
+:host(.ativo) .opcao {
+    opacity: 1;
+    transform: translateY(0); /* Sobem para o lugar certo */
+}
+
+:host(.ativo) .opcao:nth-child(1) { transition-delay: 0.1s; }
+:host(.ativo) .opcao:nth-child(2) { transition-delay: 0.2s; }
+:host(.ativo) .opcao:nth-child(3) { transition-delay: 0.3s; }
+:host(.ativo) .opcao:nth-child(4) { transition-delay: 0.4s; }
+:host(.ativo) .opcao:nth-child(5) { transition-delay: 0.5s; }
+:host(.ativo) .opcao:nth-child(6) { transition-delay: 0.6s; }
+
+.opcao p {
+    color: #2D3748;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative; /* Essencial: define o limite para a linha absoluta */
+    display: inline-block; /* Garante que a largura da linha respeite o texto */
+    padding-bottom: 2px;
+}
+.opcao p::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%; /* Começa sem largura */
+    height: 2px; /* Espessura da linha */
+    background-color: #2D3748; /* Cor Amarelo Ouro (Mude se quiser branco: #FFF) */
+    transition: width 0.3s ease-in-out;
+}
+
+.opcao p:hover::after {
+    width: 100%;
+}
+
+.opcao p:hover{
+    opacity: 0.9;
+}
