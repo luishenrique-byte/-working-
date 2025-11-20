@@ -21,7 +21,7 @@ header{
     gap: 35px;
 }
 
-
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
 .login {
     display: flex;
     width: 60%;
@@ -37,33 +37,30 @@ header{
     font-weight: 700;
     line-height: normal;
     border-radius: 50px;
+    padding: 5px 10px;
+    transition: transform 0.2s ease;
+}
+
+.login_button:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
 }
 
 #fazer_login_btn {
-    padding: 0px;
-    border: none;
+    border: 2px solid #F5D12D;
     background: none;
-    color: #F5D12D;
+    color: #fff;
 }
-
 #fazer_login_btn:hover {
-    cursor: pointer;
+    background-color: #F5D12D;
+    color: #2D3748;
 }
 
 #cadastrar_btn {
-    border: none;
-    border-radius: 20px;
     background: #F5D12D;
     color: #2D3748;
-    padding: 5px 10px;
-    
 }
-
-#cadastrar_btn:hover {
-    cursor: pointer;
-    
-}
-
+/*zxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 #lupa {
     width: 50px;
     height: auto;
