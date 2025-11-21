@@ -1,1 +1,62 @@
-<p>section-posts works!</p>
+<section class="post-section" #sectionRef>
+    <div class="conteudo">
+
+        <div class="texto">
+
+            <h1>Veja Quem Precisa de Você! </h1>
+
+            <p>Explore projetos reais postados por outros freelancers que estão expandindo suas equipes. Eles precisam de parceiros talentosos (como você!) para dividir o trabalho e entregar resultados incríveis. Encontre uma oportunidade, junte-se a uma equipe e cresça em conjunto.</p>
+
+        </div>
+
+        <div class="vitrine-posts">
+
+            <button (click)="changePost('prev'); startAutoSlide()">
+                <svg class="setas" id="seta-esq" xmlns="http://www.w3.org/2000/svg" width="80" height="80"
+                    viewBox="0 0 80 80" fill="none">
+                    <path
+                        d="M56.2917 70.7083C54.6578 72.3422 52.0088 72.3422 50.375 70.7083L23.5355 43.8689C21.5829 41.9162 21.5829 38.7504 23.5355 36.7978L50.375 9.95833C52.0088 8.32449 54.6578 8.32449 56.2917 9.95833C57.9255 11.5922 57.9255 14.2412 56.2917 15.875L35.3689 36.7978C33.4162 38.7504 33.4162 41.9162 35.3689 43.8689L56.2917 64.7917C57.9255 66.4255 57.9255 69.0745 56.2917 70.7083Z"
+                        fill="#F5D12D" />
+                </svg>
+            </button>
+
+            <div class="post">
+
+                <p class="post-data">{{posts[currentIndex].data}}</p>
+                <h1 class="post-titulo">{{posts[currentIndex].titulo}}</h1>
+
+                <div class="fzr-proposta">
+                    <button>Fazer uma Proposta</button>
+                    <p class="post-preco">R${{posts[currentIndex].preco}}</p>
+                    
+                </div>
+
+                <p class="post-descricao">{{posts[currentIndex].descricao}}</p>
+                
+
+                <div class="perfil">
+                    <div class="post-bottom">
+                        <div class="post-avatar"><img [src]="posts[currentIndex].avatar" alt=""></div>
+                        <div>
+                            <p>{{posts[currentIndex].nome}},</p>
+                            <p>{{posts[currentIndex].cargo}}.</p>
+                        </div>
+                    </div>
+                    <img [src]="posts[currentIndex].pais" alt="">
+                </div>
+
+            </div>
+
+            <button (click)="changePost('next'); startAutoSlide()">
+                <svg class="setas" id="seta-dir" xmlns="http://www.w3.org/2000/svg" width="80" height="80"
+                    viewBox="0 0 80 80" fill="none">
+                    <path
+                        d="M29.7084 70.375C28.0745 72.0088 25.4256 72.0088 23.7917 70.375C22.1579 68.7411 22.1579 66.0921 23.7917 64.4583L44.7145 43.5355C46.6671 41.5829 46.6671 38.417 44.7145 36.4644L23.7917 15.5416C22.1579 13.9078 22.1579 11.2588 23.7917 9.62496C25.4256 7.99112 28.0745 7.99112 29.7084 9.62496L56.5478 36.4644C58.5005 38.417 58.5005 41.5829 56.5478 43.5355L29.7084 70.375Z"
+                        fill="#F5D12D" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <button class="section-btn">Junte-se a um Projeto!</button>
+</section>
