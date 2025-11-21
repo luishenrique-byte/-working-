@@ -1,1 +1,24 @@
-<p>section-advantages works!</p>
+<section class="vantagem-section" #sectionRef>
+
+    <div class="grid-cards">
+
+        <div class="card-vantagem" *ngFor="let i of advantages">
+
+            
+            <img class="icon" src="{{i.icon}}" alt="Icone do card">
+            
+
+            <h2>{{i.title}}</h2>
+            <div class="div-descricao">
+                <p>{{i.text1}}</p>
+                <p>{{i.text2}}</p>
+            </div>
+
+        </div>
+    
+    </div>
+
+    <p class="frase">"Transportai um punhado de terra todos os dias, e fareis uma montanha." – Confúcio</p>
+
+    <button>Adquira a ferramenta!</button>
+</section>
