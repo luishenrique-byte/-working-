@@ -66,6 +66,7 @@
 :host(.ativo) .opcao:nth-child(4) { transition-delay: 0.4s; }
 :host(.ativo) .opcao:nth-child(5) { transition-delay: 0.5s; }
 :host(.ativo) .opcao:nth-child(6) { transition-delay: 0.6s; }
+:host(.ativo) .opcao:nth-child(7) { transition-delay: 0.7s; }
 
 .opcao p {
     color: #2D3748;
