@@ -6,8 +6,7 @@
 .sidebar {
     display: flex;
     justify-content: center;
-    /* Mudei para FIXED para acompanhar a rolagem da tela */
-    position: fixed; 
+    position: absolute; 
     right: 0;
     width: 20%; 
     height: 30%; 
