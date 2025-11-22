@@ -18,13 +18,13 @@ export class SectionAdvantagesComponent {
     },
     {
       icon: 'assets/img/icons/Icon group.png',
-      title: 'Gestão de Tempo',
+      title: 'Formação de Equipes',
       text1: 'O "vício de fazer tudo sozinho" limita seu crescimento. Convide seus parceiros de confiança ou publique seu projeto em nossa comunidade para encontrar novos talentos.',
       text2: 'Escalar nunca foi tão fácil.'
     },
     {
       icon: 'assets/img/icons/Icon Kanban.svg',
-      title: 'Gestão de Tempo',
+      title: 'Metodologia Ágil',
       text1: 'Uma equipe precisa de organização. Use nosso quadro Kanban integrado para visualizar tarefas, definir prazos e acompanhar o progresso do projeto em tempo real.',
       text2: 'Gestão de verdade, sem sair do site.'
     }
