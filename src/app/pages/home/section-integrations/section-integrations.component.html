@@ -1,0 +1,15 @@
+<section class="section-integracoes">
+    <div class="integracoes" *ngFor = "let i of marcas" [style.background-color]='i.color' [class.temaEscuro]="i.corClara">
+        
+        <img class="bg-decorativo" [class.corBranca]="!(i.corClara)" [src]="i.logo" aria-hidden="true">
+
+        <div class="info" >
+            <h1>{{i.title}}</h1>
+            <p>{{i.description}}</p>
+        </div>
+
+        <div class="logo">
+            <img [src]="i.logo" [alt]="i.name">
+        </div>
+    </div>
+</section>
