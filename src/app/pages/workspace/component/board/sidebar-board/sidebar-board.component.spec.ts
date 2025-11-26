@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SidebarBoardComponent } from './sidebar-board.component';
+
+describe('SidebarBoardComponent', () => {
+  let component: SidebarBoardComponent;
+  let fixture: ComponentFixture<SidebarBoardComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [SidebarBoardComponent]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(SidebarBoardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

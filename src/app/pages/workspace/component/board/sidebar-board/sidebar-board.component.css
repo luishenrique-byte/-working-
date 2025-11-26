@@ -1,0 +1,8 @@
+.sidebar-board {
+    position: fixed;
+    height: 100vh;
+    width: 8vw;
+    background-color: #FFD700;
+    display: flex;
+    flex-direction: column;
+}
