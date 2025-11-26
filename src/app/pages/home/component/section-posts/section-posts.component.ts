@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Post } from '../../../interfaces/post';
+import { Post } from '../../../../interfaces/post';
 import { CommonModule } from '@angular/common';
 
 @Component({
