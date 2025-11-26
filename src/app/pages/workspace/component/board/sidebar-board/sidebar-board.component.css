@@ -1,8 +1,60 @@
 .sidebar-board {
-    position: fixed;
     height: 100vh;
-    width: 8vw;
+    width: 5vw;
     background-color: #FFD700;
     display: flex;
     flex-direction: column;
+    gap:5%;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 20%;
+    position: relative;
+    width: 80%;
+}
+
+.nav-item path {
+    width: 100%;
+    fill: #2D3748;
+}
+
+.nav-item path:hover {
+    cursor: pointer;
+    fill: #465268;
+}
+
+.nav-item.home::after {
+    content: '';           /* Obrigatório para pseudo-elemento */
+    position: absolute;    /* Solto dentro do card */
+    height: 5px;           /* Espessura da barra */
+    width: 100%;             /* Começa invisível (largura 0) */
+    background-color: #2D3748;
+
+    bottom: -40%;
+    left: 0;
+}
+
+.integracoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.logos {
+    width: 80%;
+}
+
+.logos img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+}
+
+.logos img:hover{
+    cursor: pointer;
+    transform: translateX(2px);
+    border-radius: 100px;
 }
