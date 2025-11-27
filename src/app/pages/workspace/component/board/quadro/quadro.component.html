@@ -1,0 +1,31 @@
+<div class="quadro-area">
+
+    <app-header-quadro></app-header-quadro>
+
+    <div class="coluna-area" #boardContainer (mousedown)="iniciarArrasto($event, boardContainer)"
+        (mouseleave)="pararArrasto()" (mouseup)="pararArrasto()" (mousemove)="moverArrasto($event, boardContainer)">
+        <div class="coluna" *ngFor="let col of Colunas">
+            <div class="coluna-header">
+                <h1>{{col.nome}}</h1>
+                <!--X para excluir a coluna-->
+                <button class="btn-icon">✖</button>
+            </div>
+            <div class="lista-tarefas">
+                <div class="tarefa" *ngFor="let task of col.tarefas">
+                    <div class="tarefa-header">
+                        <h1>{{task.titulo}}</h1>
+                        <button class="btn-reticencias">...</button>
+                        <!--Três pontinhos para mais informações da taks, exemplo:
+                                Quem Criou;
+                                Quando foi criado;
+                                Prazo;
+                                Editar;
+                                Excluir task;-->
+                    </div>
+                    <p *ngIf="task.descricao">{{task.descricao}}</p>
+                </div>
+            </div>
+            <button class="btn-add-task">+ Adicionar Tarefa</button>
+        </div>
+    </div>
+</div>
