@@ -1,0 +1,146 @@
+main {
+    display: flex;
+    flex-direction: row;
+    
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+.quadro-area {
+    flex: 1;             /* Ocupa todo o espaço que sobrar */
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Alinha todas no topo */
+    overflow-x: auto;    /* Permite rolar para o lado se tiver muitas colunas */
+    gap: 3% ;
+
+    /* Mãozinha aberta (convite para pegar) */
+    cursor: grab; 
+    
+    /* Impede o usuário de selecionar texto azul enquanto arrasta */
+    user-select: none;
+
+    /* 1. Para Firefox */
+    scrollbar-width: none;
+
+    /* 2. Para Internet Explorer e Edge antigo */
+    -ms-overflow-style: none;
+}
+
+/* 3. Para Chrome, Safari e Opera (Webkit) */
+.quadro-area::-webkit-scrollbar {
+    display: none;
+}
+
+.quadro-area:active {
+    cursor: grabbing; /* Mão fechada segurando */
+    cursor: -webkit-grabbing;
+}
+
+.coluna {
+    min-width: 300px;    /* Largura fixa da coluna */
+    max-width: 300px;
+    background-color: #EBECF0; /* Cinza clássico de fundo de coluna */
+    border-radius: 12px;
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    max-height: 95%;     /*Se a coluna for gigante, ela não estoura a tela*/
+}
+
+.coluna-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    font-weight: bold;
+    color: #172B4D;
+}
+
+.coluna h1 {
+    font-size: medium;
+}
+
+/* Area onde ficam os cards (Se encher, rola só aqui dentro) */
+.lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto; /* Scroll vertical dentro da coluna */
+    padding-right: 4px; /* Espaço pro scroll */
+
+    /* 1. Para Firefox */
+    scrollbar-width: none;
+
+    /* 2. Para Internet Explorer e Edge antigo */
+    -ms-overflow-style: none;
+}
+/* 3. Para Chrome, Safari e Opera (Webkit) */
+.lista-tarefas::-webkit-scrollbar {
+    display: none;
+}
+/* ================================================== */
+/* 3. O CARD (Branco)                                 */
+/* ================================================== */
+
+.tarefa {
+    background-color: #FFF;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.tarefa:hover {
+    background-color: #F4F5F7;
+}
+
+.tarefa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.tarefa h1 {
+    font-size: 0.95rem;
+    color: #172B4D;
+    font-weight: 500;
+}
+
+.tarefa p {
+    font-size: 0.85rem;
+    color: #5E6C84;
+    margin-top: 5px;
+}
+
+.btn-reticencias,
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6B778C;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn-add-task {
+    background: transparent;
+    color: #5E6C84;
+    border: none;
+    padding: 8px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.btn-add-task:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: #172B4D;
+}
