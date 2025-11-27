@@ -1,12 +1,55 @@
 .sidebar-board {
+    position: relative;
     height: 100vh;
-    width: 5vw;
+    width: 50px;
     background-color: #FFD700;
     display: flex;
     flex-direction: column;
     gap:5%;
     align-items: center;
+    justify-content: space-between;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.sidebar-board.fechado {
+    width: 0px;       /* A barra some */
+    padding: 0;       /* Remove espaçamento interno */
+}
+
+/* ESCONDE OS ÍCONES QUANDO FECHAR */
+/* Se não fizer isso, os ícones ficam "vazando" ou espremidos */
+.sidebar-board.fechado .nav-item,
+.sidebar-board.fechado .integracoes-list,
+.sidebar-board.fechado .icon-perfil{
+    opacity: 0;
+    pointer-events: none; /* Impede clicar no nada */
+    display: none; /* Remove do fluxo */
+}
+
+.seta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: auto;
+    background-color: #FFD700;
+    border-radius: 0 50% 50% 0;
+    left: 100%;
+    top: 50px;
+}
+
+.seta img {
+    transition: transform 0.5s ease;
+    transform: rotate(180deg);
+}
+/* QUANDO FECHAR, A SETA GIRA 180 GRAUS */
+.sidebar-board.fechado .seta img {
+    transform: rotate(0deg);
+}
+
+
 
 .nav-item {
     margin: 20%;
@@ -40,6 +83,7 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    flex:1;
 }
 
 .logos {
@@ -57,4 +101,15 @@
     cursor: pointer;
     transform: translateX(2px);
     border-radius: 100px;
+}
+
+.icon-perfil {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.icon-perfil img {
+    border-radius: 100px;
+    width: 100%;
+    height: auto;
 }
