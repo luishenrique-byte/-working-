@@ -1,12 +1,10 @@
 <header>
     <div class="div-titulo">
         <h1 class="titulo-texto" *ngIf="!editando" (click)="editar()"  >{{titulo}}</h1>
-        <input *ngIf="editando" (ngModel)]="titulo" (blur)="salvar()" (keyup.enter)="salvar()" type="text" class="titulo-input" value="Meu Quadro" autofocus>
+        <input *ngIf="editando" [(ngModel)]="titulo" (blur)="salvar()" (keyup.enter)="salvar()" type="text" class="titulo-input" value="Meu Quadro" autofocus>
 
-        <!-- <input type="text" class="titulo" value="Quadro 1" placeholder="Nome do Quadro">
-
-        <button class="edit-btn">
-            <i class="fa-solid fa-pen"></i> </button> -->
+        <!-- <input type="text" class="titulo" value="Quadro 1" placeholder="Nome do Quadro"> -->
+            <i class="fa-solid fa-pen"></i>
     </div>
 
     <div class="info">
