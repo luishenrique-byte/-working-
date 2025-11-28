@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Coluna } from '../../../../../interfaces/board/coluna';
 import { HeaderQuadroComponent } from "../header-quadro/header-quadro.component";
 
 @Component({
   selector: 'app-quadro',
-  imports: [CommonModule, HeaderQuadroComponent],
+  imports: [CommonModule, HeaderQuadroComponent, FormsModule],
   templateUrl: './quadro.component.html',
   styleUrl: './quadro.component.css'
 })
@@ -13,12 +14,12 @@ export class QuadroComponent {
   //==================================
   //LÓGICA ATRÁS DO SCROLL DAS COLUNAS
   //==================================
-  // VARIÁVEIS DE CONTROLE
+  
   isDown = false;       // O mouse está clicado? (A bandeira)
   startX = 0;           // Onde o mouse estava quando clicou?
   scrollLeft = 0;       // Onde a barra de rolagem estava quando clicou?
 
-  // 1. QUANDO CLICA (Segura o papel)
+  // QUANDO CLICA (Segura o papel)
   iniciarArrasto(e: MouseEvent, slider: HTMLDivElement) {
     this.isDown = true;
     slider.classList.add('active'); // Opcional: para mudar estilo no CSS
@@ -30,13 +31,13 @@ export class QuadroComponent {
     this.scrollLeft = slider.scrollLeft;
   }
 
-  // 2. QUANDO SOLTA OU SAI DA TELA (Solta o papel)
+  // QUANDO SOLTA OU SAI DA TELA (Solta o papel)
   pararArrasto() {
     this.isDown = false;
     // slider.classList.remove('active');
   }
 
-  // 3. ENQUANTO MOVE O MOUSE (Arrasta o papel)
+  // ENQUANTO MOVE O MOUSE (Arrasta o papel)
   moverArrasto(e: MouseEvent, slider: HTMLDivElement) {
     // Se o mouse não estiver clicado, não faz nada
     if (!this.isDown) return;
@@ -54,8 +55,65 @@ export class QuadroComponent {
     slider.scrollLeft = this.scrollLeft - andou;
   }
 
+
+  //=============================
+  //LÓGICA PARA CRIAR NOVA LISTA
+  //=============================
+
+  criandoLista: boolean = false;
+  nomeNovaLista: string = '';
+
+  @ViewChild('inputNovaLista') inputRef!: ElementRef;
+
+  iniciarCriacao(){
+    this.criandoLista = true;
+
+    // 2. Espera um pouquinho (o tempo do Angular renderizar o HTML)
+    setTimeout(() => {
+      if (this.inputRef) {
+        this.inputRef.nativeElement.focus(); // 3. Agora sim, dá o foco!
+      }
+    }, 1); // 0ms é suficiente, pois joga a ação para o final da fila de tarefas
+  }
+
+  cancelarCriacao(){
+    this.criandoLista = false;
+    this.nomeNovaLista ='';
+  }
+
+
+  addLista(){
+   
+    if(this.nomeNovaLista.trim().length==0){
+      return
+    }
+
+    const novaColuna:Coluna = {
+      id:Math.random(),
+      nome: this.nomeNovaLista
+    }
+
+    this.Colunas.push(novaColuna);
+
+    this.criandoLista = false
+    this.nomeNovaLista = '';
+
+  }
+
+  //==============================
+  //LÓGICA PARA REMOVER NOVA LISTA
+  //==============================
+
+  removeLista(){
+
+  }
+
+  //=========================================
+  //ARRAY QUE SIMULA BANCO DE DADOS DAS LISTAS
+  //=========================================
   public Colunas: Coluna[] = [
     {
+      id:1,
       nome: "A Fazer 📌",
       tarefas: [
         { id: 1, titulo: 'Criar banco de dados', descricao: 'Usar Firebase' },
@@ -63,6 +121,7 @@ export class QuadroComponent {
       ]
     },
     {
+      id:2,
       nome: "Em progresso 🚧",
       tarefas: [
         { id: 3, titulo: 'Desenvolver página de pagamento', descricao: 'NÃO ESQUECER A CHAVE PIX' }
@@ -70,48 +129,7 @@ export class QuadroComponent {
     }
     ,
     {
-      nome: "Concluído ✅",
-      tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
-      ]
-    }
-    ,
-    {
-      nome: "Concluído ✅",
-      tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
-      ]
-    }
-    ,
-    {
-      nome: "Concluído ✅",
-      tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
-      ]
-    }
-    ,
-    {
-      nome: "Concluído ✅",
-      tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
-      ]
-    }
-    ,
-    {
-      nome: "Concluído ✅",
-      tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
-      ]
-    }
-    ,
-    {
-      nome: "Concluído ✅",
-      tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
-      ]
-    }
-    ,
-    {
+      id:3,
       nome: "Concluído ✅",
       tarefas: [
         { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }

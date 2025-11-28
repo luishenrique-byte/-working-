@@ -4,12 +4,15 @@
 
     <div class="coluna-area" #boardContainer (mousedown)="iniciarArrasto($event, boardContainer)"
         (mouseleave)="pararArrasto()" (mouseup)="pararArrasto()" (mousemove)="moverArrasto($event, boardContainer)">
+
         <div class="coluna" *ngFor="let col of Colunas">
+
             <div class="coluna-header">
                 <h1>{{col.nome}}</h1>
                 <!--X para excluir a coluna-->
                 <button class="btn-icon">✖</button>
             </div>
+
             <div class="lista-tarefas">
                 <div class="tarefa" *ngFor="let task of col.tarefas">
                     <div class="tarefa-header">
@@ -25,7 +28,29 @@
                     <p *ngIf="task.descricao">{{task.descricao}}</p>
                 </div>
             </div>
+
             <button class="btn-add-task">+ Adicionar Tarefa</button>
+        </div>
+
+        <div class="btn-add-list-1" *ngIf="!criandoLista" (click)="iniciarCriacao()">
+            <p>+ Adicionar Lista</p>
+        </div>
+
+        <div class="nova-lista" *ngIf="criandoLista">
+
+            <input 
+            #inputNovaLista 
+            class="inputNovaLista" 
+            placeholder="Insira o nome da lista" 
+            [(ngModel)]="nomeNovaLista"
+            (keyup.enter)="addLista()"
+            (blur)="cancelarCriacao()"
+            type="text">
+            
+            <div>
+                <button class="btn-add-list-2" (mousedown)="addLista()">+ Adicionar Lista</button>
+                <button class="btn-icon" (mousedown)="cancelarCriacao()">✖</button>
+            </div>
         </div>
     </div>
 </div>
