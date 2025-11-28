@@ -10,7 +10,7 @@
             <div class="coluna-header">
                 <h1>{{col.nome}}</h1>
                 <!--X para excluir a coluna-->
-                <button class="btn-icon">✖</button>
+                <button class="btn-icon" (click)="mostrarPOPUp(col)">✖</button>
             </div>
 
             <div class="lista-tarefas">
@@ -38,18 +38,31 @@
 
         <div class="nova-lista" *ngIf="criandoLista">
 
-            <input 
-            #inputNovaLista 
-            class="inputNovaLista" 
-            placeholder="Insira o nome da lista" 
-            [(ngModel)]="nomeNovaLista"
-            (keyup.enter)="addLista()"
-            (blur)="cancelarCriacao()"
-            type="text">
-            
+            <input #inputNovaLista class="inputNovaLista" placeholder="Insira o nome da lista"
+                [(ngModel)]="nomeNovaLista" (keyup.enter)="addLista()" (blur)="cancelarCriacao()" type="text">
+
             <div>
                 <button class="btn-add-list-2" (mousedown)="addLista()">+ Adicionar Lista</button>
                 <button class="btn-icon" (mousedown)="cancelarCriacao()">✖</button>
+            </div>
+        </div>
+    </div>
+
+    <!--POP PARA CONFIRMAR A REMOÇÃO DA TAREFA-->
+    <div class="pop-up-remover-tarefa" [class.ativo]="popUpAtivo">
+        <div class="pop-up-conteudo">
+            <h2>Confirmar Remoção</h2>
+            <p>Tem certeza que deseja remover a Lista "{{listaSelecionada?.nome}}"?</p>
+            <p>Esta ação não poderá ser desfeita.</p>
+
+            <div class="pop-up-botoes">
+                <button class="btn-confirmar" (click)="removerLista()">
+                    Remover
+                </button>
+
+                <button class="btn-cancelar" (click)="fecharPOPUp()">
+                    Cancelar
+                </button>
             </div>
         </div>
     </div>

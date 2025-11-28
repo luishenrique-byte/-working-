@@ -3,6 +3,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Coluna } from '../../../../../interfaces/board/coluna';
 import { HeaderQuadroComponent } from "../header-quadro/header-quadro.component";
+import { Tarefa } from '../../../../../interfaces/board/tarefa';
 
 @Component({
   selector: 'app-quadro',
@@ -104,9 +105,59 @@ export class QuadroComponent {
   //LÓGICA PARA REMOVER NOVA LISTA
   //==============================
 
-  removeLista(){
+  popUpAtivo:Boolean = false
+  listaSelecionada: Coluna | null = null;
+  idLista: number | null = null
 
+  mostrarPOPUp(lista:Coluna){
+    this.listaSelecionada = lista;
+    this.popUpAtivo = true;
+    this.idLista = lista.id
   }
+
+  fecharPOPUp(){
+    this.listaSelecionada = null;
+    this.popUpAtivo = false;
+    this.idLista = null;
+  }
+
+  removerLista(){
+
+    if(this.listaSelecionada ==null){
+      return
+    }
+
+    let posicaoLista:number = -1 ;
+    this.Colunas.forEach((coluna,posicao) => {
+
+      if(coluna.id == this.idLista){
+        posicaoLista = posicao
+      }
+      
+    });
+
+    if(posicaoLista>=0){
+
+      this.Colunas.splice(posicaoLista,1)
+
+    }
+
+    console.log(`Tarefa ${this.listaSelecionada} foi removida`)
+    this.fecharPOPUp();
+  }
+
+
+
+
+
+  //==============================
+  //LÓGICA PARA CRIAR NOVA TAREFA
+  //==============================
+
+  //==============================
+  //LÓGICA PARA REMOVER NOVA TAREFA
+  //==============================
+
 
   //=========================================
   //ARRAY QUE SIMULA BANCO DE DADOS DAS LISTAS
