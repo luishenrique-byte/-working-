@@ -17,11 +17,11 @@
             cdkDropList 
             [cdkDropListData]="col.tarefas" 
             (cdkDropListDropped)="drop($event)">
-            
+
                 <div class="tarefa" *ngFor="let tarefa of col.tarefas" cdkDrag>
                     <div class="tarefa-header">
                         <div>
-                            <input class="checkbox" (click)="riscarTarefa(tarefa)" type="checkbox" name="Concluir" id="">
+                            <input class="checkbox" [checked]="tarefa.concluida" (change)="riscarTarefa(tarefa)" type="checkbox" name="Concluir" id="">
                             <h1 [class.riscado]="tarefa.concluida">{{tarefa.titulo}}</h1>
                         </div>
                         <button class="btn-reticencias">...</button>
