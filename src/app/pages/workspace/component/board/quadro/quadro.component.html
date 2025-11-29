@@ -2,7 +2,7 @@
 
     <app-header-quadro></app-header-quadro>
 
-    <div class="coluna-area" #boardContainer (mousedown)="iniciarArrasto($event, boardContainer)"
+    <div class="coluna-area" cdkDropListGroup #boardContainer (mousedown)="iniciarArrasto($event, boardContainer)"
         (mouseleave)="pararArrasto()" (mouseup)="pararArrasto()" (mousemove)="moverArrasto($event, boardContainer)">
 
         <div class="coluna" *ngFor="let col of Colunas">
@@ -13,8 +13,12 @@
                 <button class="btn-icon" (click)="mostrarPOPUp(col)">✖</button>
             </div>
 
-            <div class="lista-tarefas">
-                <div class="tarefa" *ngFor="let tarefa of col.tarefas">
+            <div class="lista-tarefas" 
+            cdkDropList 
+            [cdkDropListData]="col.tarefas" 
+            (cdkDropListDropped)="drop($event)">
+            
+                <div class="tarefa" *ngFor="let tarefa of col.tarefas" cdkDrag>
                     <div class="tarefa-header">
                         <div>
                             <input class="checkbox" (click)="riscarTarefa(tarefa)" type="checkbox" name="Concluir" id="">

@@ -95,6 +95,12 @@
     padding-right: 4px;
     /* Espaço pro scroll */
 
+    /* 1. Ocupa todo o espaço sobrando na coluna (empurra o botão de adicionar lá pra baixo) */
+    flex: 1; 
+    
+    /* 2. Garante uma altura mínima para acertar o mouse mesmo se a coluna for pequena */
+    min-height: 30px;
+
     /* 1. Para Firefox */
     scrollbar-width: none;
 
@@ -428,4 +434,38 @@
 
 .btn-cancelar:hover {
     background-color: #d1d5db;
+}
+
+
+/* 1. O CARD QUE VOCÊ ESTÁ SEGURANDO (PREVIEW) */
+/* Quando você arrasta, o Angular cria uma cópia do card. Vamos deixar ela bonita. */
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra forte pra parecer que está flutuando */
+    background-color: #fff; /* Garante fundo branco */
+    
+    /* Um leve giro pra dar sensação de movimento natural */
+    transform: rotate(2deg); 
+}
+
+/* 2. O BURACO ONDE ELE VAI CAIR (PLACEHOLDER) */
+/* É o espaço cinza que abre na lista enquanto você segura o item */
+.cdk-drag-placeholder {
+    opacity: 0.3; /* Deixa meio transparente */
+    background: #ccc;
+    border: 2px dashed #999; /* Borda pontilhada clássica */
+    border-radius: 8px;
+}
+
+/* 3. ANIMAÇÃO SUAVE DOS OUTROS ITENS */
+/* Faz os cards que não estão sendo arrastados saírem da frente suavemente */
+.cdk-drop-list-dragging .tarefa:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* 4. ANIMAÇÃO QUANDO SOLTA */
+/* Faz o card viajar suavemente do mouse até o buraco quando você solta */
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
