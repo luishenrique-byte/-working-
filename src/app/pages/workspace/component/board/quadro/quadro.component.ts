@@ -12,6 +12,11 @@ import { Tarefa } from '../../../../../interfaces/board/tarefa';
   styleUrl: './quadro.component.css'
 })
 export class QuadroComponent {
+
+
+
+  
+
   //==================================
   //LÓGICA ATRÁS DO SCROLL DAS COLUNAS
   //==================================
@@ -56,7 +61,16 @@ export class QuadroComponent {
     slider.scrollLeft = this.scrollLeft - andou;
   }
 
+  //===========================
+  //LÓGICA PARA RISCAR A TAREFA
+  //===========================
+  riscarTarefa(tarefa: Tarefa){
 
+    console.log('chegou')
+    
+    tarefa.concluida=!tarefa.concluida
+  
+  }
   //=============================
   //LÓGICA PARA CRIAR NOVA LISTA
   //=============================
@@ -147,9 +161,6 @@ export class QuadroComponent {
   }
 
 
-
-
-
   //==============================
   //LÓGICA PARA CRIAR NOVA TAREFA
   //==============================
@@ -167,15 +178,15 @@ export class QuadroComponent {
       id:1,
       nome: "A Fazer 📌",
       tarefas: [
-        { id: 1, titulo: 'Criar banco de dados', descricao: 'Usar Firebase' },
-        { id: 2, titulo: 'Pagar dominio' }
+        { id: 1, titulo: 'Criar banco de dados', descricao: 'Usar Firebase', concluida:false },
+        { id: 2, titulo: 'Pagar dominio', concluida:false}
       ]
     },
     {
       id:2,
       nome: "Em progresso 🚧",
       tarefas: [
-        { id: 3, titulo: 'Desenvolver página de pagamento', descricao: 'NÃO ESQUECER A CHAVE PIX' }
+        { id: 3, titulo: 'Desenvolver página de pagamento', descricao: 'NÃO ESQUECER A CHAVE PIX',concluida:false }
       ]
     }
     ,
@@ -183,7 +194,7 @@ export class QuadroComponent {
       id:3,
       nome: "Concluído ✅",
       tarefas: [
-        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install' }
+        { id: 4, titulo: 'Instalar angular', descricao: 'comando para baixar dependencias: npm install',concluida:false }
       ]
     }
   ]

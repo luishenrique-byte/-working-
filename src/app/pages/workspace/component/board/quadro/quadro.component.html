@@ -14,9 +14,12 @@
             </div>
 
             <div class="lista-tarefas">
-                <div class="tarefa" *ngFor="let task of col.tarefas">
+                <div class="tarefa" *ngFor="let tarefa of col.tarefas">
                     <div class="tarefa-header">
-                        <h1>{{task.titulo}}</h1>
+                        <div>
+                            <input class="checkbox" (click)="riscarTarefa(tarefa)" type="checkbox" name="Concluir" id="">
+                            <h1 [class.riscado]="tarefa.concluida">{{tarefa.titulo}}</h1>
+                        </div>
                         <button class="btn-reticencias">...</button>
                         <!--Três pontinhos para mais informações da taks, exemplo:
                                 Quem Criou;
@@ -25,7 +28,7 @@
                                 Editar;
                                 Excluir task;-->
                     </div>
-                    <p *ngIf="task.descricao">{{task.descricao}}</p>
+                    <p *ngIf="tarefa.descricao">{{tarefa.descricao}}</p>
                 </div>
             </div>
 

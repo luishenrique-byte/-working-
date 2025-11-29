@@ -1,4 +1,8 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 
 .quadro-area {
     border: 3px solid #FFD700;
@@ -127,10 +131,78 @@
     margin-bottom: 5px;
 }
 
+.tarefa-header div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ======================= */
+/* css do checkbox que talvez reutilizamos para outros */
+/* ========================== */
+
+.checkbox {
+
+    appearance: none;
+    height: 0px;
+
+    width: 0px;
+
+    border: 0px solid #CBD5E0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.checkbox::before {
+    content: '';
+    background-color: #10B981;
+    height: 0px;
+    width: 0px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10B9818a;
+    background-image: url(../../../../../../../public/assets/img/icons/check\ icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    rotate: -360deg;
+    scale: 0;
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.checkbox:checked,
+.checkbox:checked::before {
+    border: 2px solid #10B981;
+    height: 20px;
+    width: 20px;
+}
+.tarefa:hover .checkbox,
+.tarefa:hover .checkbox::before{
+    border: 2px solid #CBD5E0;
+    height: 20px;
+    width: 20px;
+}
+
+.checkbox:checked::before {
+    rotate: 0deg;
+    scale: 1;
+    opacity: 1;
+}
+
 .tarefa h1 {
     font-size: 0.95rem;
     color: #172B4D;
     font-weight: 500;
+}
+
+.riscado {
+    text-decoration: line-through; /* Passa o risco no meio */
+    color: #A0AEC0; /* Deixa o texto cinza claro (opcional) */
+    opacity: 0.7;
+    transition: all 0.2s ease;
 }
 
 .tarefa p {
