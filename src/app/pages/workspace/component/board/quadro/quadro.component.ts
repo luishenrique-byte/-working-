@@ -78,20 +78,20 @@ export class QuadroComponent {
   criandoLista: boolean = false;
   nomeNovaLista: string = '';
 
-  @ViewChild('inputNovaLista') inputRef!: ElementRef;
+  @ViewChild('inputNovaLista') inputRefLista!: ElementRef;
 
-  iniciarCriacao(){
+  iniciarCriacaoLista(){
     this.criandoLista = true;
 
     // 2. Espera um pouquinho (o tempo do Angular renderizar o HTML)
     setTimeout(() => {
-      if (this.inputRef) {
-        this.inputRef.nativeElement.focus(); // 3. Agora sim, dá o foco!
+      if (this.inputRefLista) {
+        this.inputRefLista.nativeElement.focus(); // 3. Agora sim, dá o foco!
       }
     }, 1); // 0ms é suficiente, pois joga a ação para o final da fila de tarefas
   }
 
-  cancelarCriacao(){
+  cancelarCriacaoLista(){
     this.criandoLista = false;
     this.nomeNovaLista ='';
   }
@@ -105,7 +105,8 @@ export class QuadroComponent {
 
     const novaColuna:Coluna = {
       id:Math.random(),
-      nome: this.nomeNovaLista
+      nome: this.nomeNovaLista,
+      tarefas: []
     }
 
     this.Colunas.push(novaColuna);
@@ -115,9 +116,9 @@ export class QuadroComponent {
 
   }
 
-  //==============================
-  //LÓGICA PARA REMOVER NOVA LISTA
-  //==============================
+  //=========================
+  //LÓGICA PARA REMOVER LISTA
+  //=========================
 
   popUpAtivo:Boolean = false
   listaSelecionada: Coluna | null = null;
@@ -164,7 +165,52 @@ export class QuadroComponent {
   //==============================
   //LÓGICA PARA CRIAR NOVA TAREFA
   //==============================
+  // Em vez de true/false, guardamos o ID da coluna que está aberta. 
+  // 0 significa "nenhuma aberta".
+  colunaIdCriandoTarefa: number = 0;
+  nomeNovaTarefa: string = '';
 
+  @ViewChild('inputNovaTarefa') inputRefTarefa!: ElementRef;
+
+  iniciarCriacaoTarefa(colunaId:number){
+    this.colunaIdCriandoTarefa = colunaId; // Só abre nessa colun
+
+    // 2. Espera um pouquinho (o tempo do Angular renderizar o HTML)
+    setTimeout(() => {
+      if (this.inputRefTarefa) {
+        this.inputRefTarefa.nativeElement.focus(); // 3. Agora sim, dá o foco!
+      }
+    }, 1); // 0ms é suficiente, pois joga a ação para o final da fila de tarefas
+  }
+
+  cancelarCriacaoTarefa(){
+    this.colunaIdCriandoTarefa = 0; //fecha tudo
+    this.nomeNovaTarefa ='';
+  }
+
+
+  addTarefa(coluna: Coluna){
+   
+    if(this.nomeNovaTarefa.trim().length==0){
+      return;
+    }
+
+    const novaTarefa:Tarefa = {
+      id:Math.random(),
+      titulo: this.nomeNovaTarefa,
+      concluida: false
+    }
+
+    coluna.tarefas.push(novaTarefa);
+
+
+    this.nomeNovaTarefa = '';
+    
+    //Se quiser fechar depois de adicionar, descomente as linhas abaixo:
+    // this.colunaIdCriandoTarefa = 0;
+    // this.cancelarCriacaoTarefa();
+  }
+  
   //==============================
   //LÓGICA PARA REMOVER NOVA TAREFA
   //==============================

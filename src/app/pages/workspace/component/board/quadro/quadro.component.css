@@ -128,7 +128,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 5px;
 }
 
 .tarefa-header div {
@@ -196,6 +195,7 @@
     font-size: 0.95rem;
     color: #172B4D;
     font-weight: 500;
+    align-items: flex-start;
 }
 
 .riscado {
@@ -275,7 +275,7 @@
     gap: 0px;
 }
 
-.inputNovaLista {
+.inputNovaLista{
     padding: 3px;
     margin: 10px 10px 0px 10px;
     border-radius: 5px;
@@ -301,6 +301,38 @@
     font-size: 16px;
     font-weight: 700;
     padding: 5px 10px;
+}
+
+.inputNovaTarefa {
+    padding: 3px;
+    margin: 10px 10px 0px 10px;
+    border-radius: 5px;
+    background-color: #2D3748; /* Fundo branco quando edita */
+    color: #FFF; /* Letra preta pra ler bem */
+    outline: none;
+    border: 2px solid #FFF; /* Borda azul/cinza de foco */
+    width: auto;
+    min-width: 100px;
+    cursor: text;
+}
+
+.nova-tarefa {
+    background-color: #000;
+    border-radius: 10px;
+    min-width: 280px;
+    /* Largura fixa da coluna */
+    max-width: 280px;
+    max-height: 100px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.nova-tarefa div{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 /* ================================================== */

@@ -32,21 +32,41 @@
                 </div>
             </div>
 
-            <button class="btn-add-task">+ Adicionar Tarefa</button>
+            
+            <div class="nova-tarefa" *ngIf="colunaIdCriandoTarefa == col.id">
+
+                <input 
+                #inputNovaTarefa
+                class="inputNovaTarefa"
+                type="text"
+                placeholder="Insira o nome da tarefa"
+                [(ngModel)]="nomeNovaTarefa"
+                (keyup.enter)="addTarefa(col)"
+                (blur)="cancelarCriacaoTarefa()">
+
+            <div>
+                <button class="btn-add-list-2" (mousedown)="addTarefa(col)">+ Adicionar tarefa</button>
+                <button class="btn-icon" (mousedown)="cancelarCriacaoTarefa()">✖</button>
+            </div>
+        </div>
+            
+            <button class="btn-add-task" 
+            (click)="iniciarCriacaoTarefa(col.id)"
+            *ngIf="colunaIdCriandoTarefa !== col.id">+ Adicionar Tarefa</button>
         </div>
 
-        <div class="btn-add-list-1" *ngIf="!criandoLista" (click)="iniciarCriacao()">
+        <div class="btn-add-list-1" *ngIf="!criandoLista" (click)="iniciarCriacaoLista()">
             <p>+ Adicionar Lista</p>
         </div>
 
         <div class="nova-lista" *ngIf="criandoLista">
 
             <input #inputNovaLista class="inputNovaLista" placeholder="Insira o nome da lista"
-                [(ngModel)]="nomeNovaLista" (keyup.enter)="addLista()" (blur)="cancelarCriacao()" type="text">
+                [(ngModel)]="nomeNovaLista" (keyup.enter)="addLista()" (blur)="cancelarCriacaoLista()" type="text">
 
             <div>
                 <button class="btn-add-list-2" (mousedown)="addLista()">+ Adicionar Lista</button>
-                <button class="btn-icon" (mousedown)="cancelarCriacao()">✖</button>
+                <button class="btn-icon" (mousedown)="cancelarCriacaoLista()">✖</button>
             </div>
         </div>
     </div>
