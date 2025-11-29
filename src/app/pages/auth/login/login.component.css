@@ -1,0 +1,181 @@
+/* CONTAINER GERAL - Tela Cheia */
+.login-page {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #2D3748; /* Fundo geral escuro */
+    font-family: sans-serif;
+    color: #FFF;
+}
+
+/* --- LADO ESQUERDO (Imagem) --- */
+.login-image-side {
+    flex: 1; /* Ocupa 50% */
+    background-color: #1A202C; /* Um pouco mais escuro que o fundo */
+    /* Se quiser imagem, descomente abaixo: */
+    /* background-image: url('assets/img/fundo-login.jpg'); */
+    /* background-size: cover; */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.overlay-text h1 {
+    font-size: 3rem;
+    color: #FFD700; /* Dourado */
+    margin-bottom: 10px;
+}
+
+/* Esconde a imagem em celular */
+@media (max-width: 768px) {
+    .login-image-side { display: none; }
+}
+
+/* --- LADO DIREITO (Formulário) --- */
+.login-form-side {
+    flex: 1; /* Ocupa os outros 50% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #2D3748;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px; /* Largura máxima do form */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Textos */
+.header-login .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.header-login h2 { margin-bottom: 5px; }
+.header-login p { color: #A0AEC0; font-size: 0.9rem; }
+
+/* Botões Sociais */
+.social-login {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-social {
+    flex: 1;
+    background: transparent;
+    border: 1px solid #4A5568;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-social:hover { background-color: #4A5568; }
+
+/* Divisor "OU" */
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 10px 0;
+}
+.divider span {
+    background-color: #2D3748;
+    padding: 0 10px;
+    color: #A0AEC0;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #4A5568;
+    z-index: 0;
+}
+
+/* Inputs */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    background-color: #1A202C; /* Input escuro */
+    border: 1px solid #4A5568;
+    padding: 12px;
+    border-radius: 8px;
+    color: #FFF;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #FFD700; /* Borda Dourada ao clicar */
+}
+
+/* Opções (Checkbox e Link) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #A0AEC0;
+    margin-bottom: 20px;
+}
+
+.forgot-link {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+/* Botão Entrar */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #FFD700;
+    color: #2D3748; /* Texto escuro no fundo dourado pra leitura */
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    background-color: #E6C200;
+}
+
+/* Rodapé */
+.footer-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #A0AEC0;
+}
+.footer-text a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
