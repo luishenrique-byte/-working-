@@ -29,15 +29,15 @@
                 <span>ou</span>
             </div>
 
-            <form>
+            <form (ngSubmit)="entrar()">
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="seu@email.com">
+                    <input type="email" id="email" name="email" placeholder="seu@email.com" [(ngModel)]="dadosLogin.email">
                 </div>
 
                 <div class="input-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="password" placeholder="••••••••">
+                    <input type="password" name="senha" [(ngModel)]="dadosLogin.senha" id="password" placeholder="••••••••">
                 </div>
 
                 <div class="form-options">
@@ -48,11 +48,11 @@
                     <a href="#" class="forgot-link">Esqueceu a senha?</a>
                 </div>
 
-                <button type="button" class="btn-login">Entrar</button>
+                <button type="submit" class="btn-login" >Entrar</button>
             </form>
 
             <p class="footer-text">
-                Não tem uma conta? <a href="#">Cadastre-se</a>
+                Não tem uma conta? <a href="auth/sign-up">Cadastre-se</a>
             </p>
         </div>
 
