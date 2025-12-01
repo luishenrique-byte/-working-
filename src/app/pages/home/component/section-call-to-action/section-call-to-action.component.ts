@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-section-call-to-action',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './section-call-to-action.component.html',
   styleUrl: './section-call-to-action.component.css'
 })

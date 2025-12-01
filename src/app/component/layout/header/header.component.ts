@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SidebarHomeComponent } from '../../UI/sidebar-home/sidebar-home.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [SidebarHomeComponent],
+  imports: [SidebarHomeComponent, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../../../interfaces/post';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-section-posts',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './section-posts.component.html',
   styleUrl: './section-posts.component.css'
 })

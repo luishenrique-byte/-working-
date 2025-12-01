@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild} from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-section-advantages',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './section-advantages.component.html',
   styleUrl: './section-advantages.component.css'
 })
