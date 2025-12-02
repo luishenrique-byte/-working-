@@ -49,6 +49,6 @@ export class SignUpComponent {
     alert('Conta criada com sucesso! Faça login.');
     
     // Manda o usuário para a tela de Login
-    this.router.navigate(['/login']);
+    this.router.navigate(['/workspace']);
   }
 }
