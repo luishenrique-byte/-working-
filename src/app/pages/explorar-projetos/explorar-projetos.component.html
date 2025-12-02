@@ -1,0 +1,65 @@
+<div class="page-container">
+
+    <main class="content-area">
+        
+        <header class="explore-header">
+            <img src="assets/img/logos/working_logo.svg" alt="Working_logo" id="logo">
+
+            <!-- <div class="text-intro">
+                <h1>Explorar Projetos</h1>
+                <p>Encontre equipes incríveis e colabore em novas ideias.</p>
+            </div> -->
+
+            <div class="search-area">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar por nome, tag ou vaga..." [(ngModel)]="termoBusca">
+                </div>
+                
+                <div class="filter">
+                    <i class="fa-solid fa-filter"></i>
+                    <button>Filtrar</button>
+                </div>
+            </div>
+            
+        </header>
+
+        <div class="community-grid">
+
+            <div class="card-projeto" *ngFor="let projeto of projetosComunidade">
+                
+                <div class="card-top">
+                    <div class="autor-info">
+                        <div class="avatar-circle">{{projeto.autor.charAt(0)}}</div>
+                        <span>{{projeto.autor}}</span>
+                    </div>
+                    <div class="tags-list">
+                        <span class="tag" *ngFor="let tag of projeto.tags">#{{tag}}</span>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <h3>{{projeto.titulo}}</h3>
+                    <p>{{projeto.descricao}}</p>
+                </div>
+
+                <div class="vagas-area">
+                    <small>Procuramos por:</small>
+                    <div class="badges-vagas">
+                        <span class="badge" *ngFor="let vaga of projeto.vagas">{{vaga}}</span>
+                    </div>
+                </div>
+
+                <button 
+                    class="btn-action" 
+                    [class.solicitado]="projeto.solicitado"
+                    (click)="solicitarEntrada(projeto)">
+                    
+                    {{ projeto.solicitado ? 'Aguardando Aprovação' : 'Solicitar Entrada' }}
+                    <i *ngIf="projeto.solicitado" class="fa-solid fa-clock"></i>
+                </button>
+
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,196 @@
+/* Layout Base */
+.page-container {
+    display: flex;
+    height: 100vh;
+    background-color: #2D3748;
+    color: #FFF;
+    overflow: hidden;
+}
+
+.content-area {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* --- CABEÇALHO --- */
+.explore-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.text-intro h1 {
+    color: #FFD700;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.text-intro p { color: #A0AEC0; }
+
+/* Barra de Busca Estilosa */
+.search-area {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+}
+
+.search-box {
+    background-color: #1A202C;
+    padding: 10px 20px;
+    border-radius: 50px; /* Bem redondinho */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #4A5568;
+    width: 300px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: #FFF;
+    outline: none;
+    width: 100%;
+}
+
+.search-box i { color: #A0AEC0; }
+
+.filter {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-right: 20px;
+}
+.filter button {
+    background: none;
+    font-size: 0.9rem;
+    color: #CBD5E0;
+    line-height: 1.5;
+}
+
+/* --- GRID DE PROJETOS --- */
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Responsivo */
+    gap: 25px;
+}
+
+/* CARD VISUAL */
+.card-projeto {
+    background-color: #1A202C;
+    border: 1px solid #4A5568;
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.2s;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    border-color: #FFD700; /* Brilha dourado ao passar o mouse */
+}
+
+/* Topo do Card (Autor e Tags) */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.autor-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #A0AEC0;
+}
+
+.avatar-circle {
+    width: 24px;
+    height: 24px;
+    background-color: #4A5568;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 0.7rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    color: #63B3ED; /* Azul claro */
+    font-weight: bold;
+}
+
+/* Corpo do Card */
+.card-body h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: #CBD5E0;
+    line-height: 1.5;
+}
+
+/* Área de Vagas */
+.vagas-area small {
+    display: block;
+    color: #718096;
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.badges-vagas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge {
+    background-color: rgba(255, 215, 0, 0.1); /* Dourado transparente */
+    color: #FFD700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Botão de Ação */
+.btn-action {
+    margin-top: auto; /* Empurra pro final do card */
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* Estado Padrão: Dourado */
+    background-color: #FFD700;
+    color: #1A202C;
+    transition: all 0.2s;
+}
+
+.btn-action:hover {
+    background-color: #E6C200;
+}
+
+/* Estado Solicitado (Cinza) */
+.btn-action.solicitado {
+    background-color: #2D3748;
+    color: #A0AEC0;
+    cursor: default;
+    border: 1px solid #4A5568;
+}
