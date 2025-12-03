@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+.details-box {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Aumentei um pouco o espaço */
+    
+    /* Sombra para destacar do fundo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    
+    /* Borda arredondada no container também */
+    padding: 5px;
+    border-radius: 12px;
+    background-color: #384255; /* O fundo vai no pai, não nos filhos */
+    
+    /* Animação de entrada do menu inteiro */
+    animation: surgimentoSuave 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.opcao {
+    padding: 10px 15px;
+    /* Tirei o background-color daqui para ele ser transparente até passar o mouse */
+    width: fit-content;
+    display: flex;
+    /* width: 100%;  Ocupa toda a largura da caixa pai */
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    
+    cursor: pointer;
+    
+    /* CORREÇÃO: era 'easy', o certo é 'ease' */
+    transition: all 0.2s ease;
+
+    animation: cair 0.4s ease forwards;
+    opacity: 0; /* Começa invisível */
+
+}
+.opcao i,
+.opcao p {
+    color: #fff;
+}
+.opcao:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Clareia levemente */
+    transform: translateX(5px); /* Anda 5 pixels para a direita */
+}
+
+/* Efeito extra: O ícone cresce um pouquinho */
+.opcao:hover i {
+    transform: scale(1.1);
+    color: #FFD700; /* Dourado do seu tema */
+}
+
+/* Transição suave para o ícone também */
+.opcao i {
+    transition: transform 0.2s ease, color 0.2s;
+}
+/* Cria a animação de cair */
+@keyframes cair {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Atrasos (Delays) para cada item */
+/* O 1º aparece na hora, o 2º espera 0.05s, o 3º espera 0.1s... */
+.opcao:nth-child(1) { animation-delay: 0.05s; }
+.opcao:nth-child(2) { animation-delay: 0.1s; }
+.opcao:nth-child(3) { animation-delay: 0.15s; }
+.opcao:nth-child(4) { animation-delay: 0.2s; }
+.opcao:nth-child(5) { animation-delay: 0.25s; }
+.opcao:nth-child(6) { animation-delay: 0.3s; }
+.opcao:nth-child(7) { animation-delay: 0.35s; }
