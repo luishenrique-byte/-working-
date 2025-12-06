@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ================================= */
+/* 1. O CARD (Sólido + Linha Única)  */
+/* ================================= */
+.info {
+    width: fit-content;
+    
+    /* A CORREÇÃO MÁGICA ESTÁ AQUI 👇 */
+    white-space: nowrap; /* Obriga o texto a ficar numa linha só */
+    
+    min-width: 160px;
+    border-radius: 8px;
+    padding: 10px 15px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    
+    background-color: #2D3748; 
+    border: 1px solid #4A5568;   
+    color: #E2E8F0;
+    
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    opacity: 0; 
+    animation: entradaCascata 0.5s ease forwards;
+}
+
+/* ================================= */
+/* 2. O ÍCONE (A Seta)               */
+/* ================================= */
+.info i {
+    max-width: 0; 
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-10px);
+    
+    color: #FFD700;
+    font-size: 0.9rem;
+    
+    /* Garante que o ícone também não quebre */
+    flex-shrink: 0; 
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================================= */
+/* 3. HOVER                          */
+/* ================================= */
+
+.info:hover {
+    background-color: #384255; 
+    border-color: #FFD700; 
+    color: #FFF;
+    transform: translateX(10px); 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.info:hover i {
+    max-width: 20px;
+    opacity: 1;
+    transform: translateX(0);
+    margin-right: 5px;
+}
+
+/* ================================= */
+/* 4. ANIMAÇÃO DE ENTRADA            */
+/* ================================= */
+@keyframes entradaCascata {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info:nth-child(1) { animation-delay: 0.1s; }
+.info:nth-child(2) { animation-delay: 0.2s; }
+.info:nth-child(3) { animation-delay: 0.3s; }
+.info:nth-child(4) { animation-delay: 0.4s; }

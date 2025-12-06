@@ -87,6 +87,7 @@
 }
 
 .logos {
+    position: relative;
     width: 80%;
 }
 
@@ -101,6 +102,48 @@
     cursor: pointer;
     transform: translateX(2px);
     border-radius: 100px;
+}
+
+/* CONTAINER DO POPUP (Estado Escondido) */
+.popup-projetos {
+    position: absolute;
+    left: 100%; /* Joga para o lado de fora da sidebar */
+    top: 50%;
+    transform: translateY(-50%) translateX(20px); /* Centraliza e afasta um pouco para a animação */
+    
+    /* 1. A PONTE INVISÍVEL */
+    /* Isso cria uma área transparente entre a logo e o card.
+       O mouse passa por aqui sem "cair" no buraco. */
+    padding-left: 15px; 
+    
+    /* Configurações de visibilidade */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Impede cliques acidentais quando invisível */
+    z-index: 9999;
+
+    /* 2. O DELAY DE SAÍDA (O Segredo do Vale da Morte) */
+    /* Quando tira o mouse, ele espera 0.3s antes de começar a sumir */
+    transition: 
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0s linear 0.2s; /* O visibility espera 0.2s para mudar */
+}
+
+/* CONTAINER DO POPUP (Estado Visível - Hover) */
+.logos:hover .popup-projetos,
+/* DICA EXTRA: Mantém aberto se o mouse estiver em cima do próprio popup também */
+.popup-projetos:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    /* Traz ele para mais perto (Animação de entrada) */
+    transform: translateY(-50%) translateX(0px);
+
+    /* 3. RESETAR O DELAY NA ENTRADA */
+    /* Quando entra, aparece NA HORA (sem esperar) */
+    transition-delay: 0s; 
 }
 
 .icon-perfil {
