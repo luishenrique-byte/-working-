@@ -10,7 +10,7 @@ export const routes: Routes = [
     {path: 'workspace', component: WorkspaceComponent},
     {path: 'login', component: LoginComponent},
     {path: 'sign-up', component: SignUpComponent},
-    {path: 'explorar-projetos', component: ExplorarProjetosComponent}
+    {path: 'explorar-projetos', component: ExplorarProjetosComponent},
     {path: '**', redirectTo: ''}
 
 ];
