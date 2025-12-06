@@ -9,19 +9,16 @@ import {
 } from '@angular/cdk/drag-drop';
 import { Coluna } from '../../../../../interfaces/board/coluna';
 import { HeaderQuadroComponent } from "../header-quadro/header-quadro.component";
+import { TaskDetailsComponent } from '../task-details/task-details.component';
 import { Tarefa } from '../../../../../interfaces/board/tarefa';
 
 @Component({
   selector: 'app-quadro',
-  imports: [CommonModule, HeaderQuadroComponent, FormsModule, DragDropModule],
+  imports: [CommonModule, HeaderQuadroComponent, TaskDetailsComponent, FormsModule, DragDropModule],
   templateUrl: './quadro.component.html',
   styleUrl: './quadro.component.css'
 })
 export class QuadroComponent {
-
-
-
-
 
   //==================================
   //LÓGICA ATRÁS DO SCROLL DAS COLUNAS
@@ -67,14 +64,6 @@ export class QuadroComponent {
     slider.scrollLeft = this.scrollLeft - andou;
   }
 
-  //===========================
-  //LÓGICA PARA RISCAR A TAREFA
-  //===========================
-  riscarTarefa(tarefa: Tarefa) {
-
-    tarefa.concluida = !tarefa.concluida
-
-  }
   //=============================
   //LÓGICA PARA CRIAR NOVA LISTA
   //=============================
@@ -219,6 +208,56 @@ export class QuadroComponent {
   //LÓGICA PARA REMOVER TAREFA
   //==============================
 
+  //===========================
+  //LÓGICA PARA RISCAR A TAREFA
+  //===========================
+  riscarTarefa(tarefa: Tarefa) {
+
+    tarefa.concluida = !tarefa.concluida
+
+  }
+
+  //======================================
+  //LÓGICA PARA MENU FLUTUANTE DAS TAREFAS
+  //======================================
+
+  tarefaMenuAbertoId: number | null = null; // ID da tarefa aberta (ou null)
+  menuTop: number = 0; // para guardar a posição vertical.
+  menuLeft: number = 0; // para guardar a posição horizontal.
+
+  abrirMenuDetalhes(event: MouseEvent, tarefa: Tarefa) {
+    event.stopPropagation(); // Impede cliques indesejados
+
+    // 1. Se clicou no mesmo botão, fecha o menu (Toggle)
+    if (this.tarefaMenuAbertoId === tarefa.id) {
+      this.fecharMenuDetalhes();
+      return;
+    }
+
+    // 2. Define qual tarefa está aberta
+    this.tarefaMenuAbertoId = tarefa.id;
+
+    // 3. A MATEMÁTICA DO POSICIONAMENTO 📐
+    // Pega o elemento do botão clicado
+    const botao = event.currentTarget as HTMLElement;
+    const rect = botao.getBoundingClientRect();
+
+    // CALCULE AQUI ONDE VOCÊ QUER O MENU (Sua "Área Vermelha")
+
+    // TOP: Logo abaixo do botão (+ um espacinho de 5px)
+    this.menuTop = rect.bottom - 40;
+
+    // LEFT: Alinhado à direita do botão? Ou à esquerda?
+    // Exemplo: Alinhado com o lado esquerdo do botão, mas puxando um pouco pra esquerda pra caber
+    // Ajuste esse "- 150" dependendo da largura do seu menu
+    this.menuLeft = rect.left + 25;
+  }
+
+  fecharMenuDetalhes() {
+    this.tarefaMenuAbertoId = null;
+  }
+
+
 
   //==============================
   //LÓGICA PARA MOVER AS TAREFA
@@ -230,16 +269,16 @@ export class QuadroComponent {
     // CENÁRIO 1: O container de onde saiu é o mesmo onde soltou?
     // (Ou seja: Estou arrastando na mesma coluna?)
     if (event.previousContainer === event.container) {
-      
+
       // Apenas troca a posição no array (Ex: da posição 0 para a 2)
       moveItemInArray(
-        event.container.data, 
-        event.previousIndex, 
+        event.container.data,
+        event.previousIndex,
         event.currentIndex
       );
 
     } else {
-      
+
       // CENÁRIO 2: Mudou de coluna!
       // (Ex: Saiu de "A Fazer" e foi para "Concluído")
       transferArrayItem(

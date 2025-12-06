@@ -24,7 +24,7 @@
                             <input class="checkbox" [checked]="tarefa.concluida" (change)="riscarTarefa(tarefa)" type="checkbox" name="Concluir" id="">
                             <h1 [class.riscado]="tarefa.concluida">{{tarefa.titulo}}</h1>
                         </div>
-                        <button class="btn-reticencias">...</button>
+                        <button class="btn-reticencias" (click)="abrirMenuDetalhes($event,tarefa)">...</button>
                         <!--Três pontinhos para mais informações da taks, exemplo:
                                 Quem Criou;
                                 Quando foi criado;
@@ -74,6 +74,15 @@
             </div>
         </div>
     </div>
+
+    <!--SIDEBAR DA EDIÇÃO DE TAFERAS-->     
+    <app-task-details
+    *ngIf="tarefaMenuAbertoId" 
+    [class.ativo]="tarefaMenuAbertoId"
+    [style.top.px]="menuTop" 
+    [style.left.px]="menuLeft" 
+    (clickOutside)="fecharMenuDetalhes()" 
+    class="menu-detalhes-flutuante">></app-task-details>
 
     <!--POP PARA CONFIRMAR A REMOÇÃO DA TAREFA-->
     <div class="pop-up-remover-tarefa" [class.ativo]="popUpAtivo">

@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -96,8 +96,8 @@
     /* Espaço pro scroll */
 
     /* 1. Ocupa todo o espaço sobrando na coluna (empurra o botão de adicionar lá pra baixo) */
-    flex: 1; 
-    
+    flex: 1;
+
     /* 2. Garante uma altura mínima para acertar o mouse mesmo se a coluna for pequena */
     min-height: 30px;
 
@@ -161,6 +161,7 @@
 
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .checkbox::before {
     content: '';
     background-color: #10B981;
@@ -184,8 +185,9 @@
     height: 20px;
     width: 20px;
 }
+
 .tarefa:hover .checkbox,
-.tarefa:hover .checkbox::before{
+.tarefa:hover .checkbox::before {
     border: 2px solid #CBD5E0;
     height: 20px;
     width: 20px;
@@ -205,8 +207,10 @@
 }
 
 .riscado {
-    text-decoration: line-through; /* Passa o risco no meio */
-    color: #A0AEC0; /* Deixa o texto cinza claro (opcional) */
+    text-decoration: line-through;
+    /* Passa o risco no meio */
+    color: #A0AEC0;
+    /* Deixa o texto cinza claro (opcional) */
     opacity: 0.7;
     transition: all 0.2s ease;
 }
@@ -281,20 +285,23 @@
     gap: 0px;
 }
 
-.inputNovaLista{
+.inputNovaLista {
     padding: 3px;
     margin: 10px 10px 0px 10px;
     border-radius: 5px;
-    background-color: #2D3748; /* Fundo branco quando edita */
-    color: #FFF; /* Letra preta pra ler bem */
+    background-color: #2D3748;
+    /* Fundo branco quando edita */
+    color: #FFF;
+    /* Letra preta pra ler bem */
     outline: none;
-    border: 2px solid #FFF; /* Borda azul/cinza de foco */
+    border: 2px solid #FFF;
+    /* Borda azul/cinza de foco */
     width: auto;
     min-width: 150px;
     cursor: text;
 }
 
-.nova-lista div{
+.nova-lista div {
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -313,10 +320,13 @@
     padding: 3px;
     margin: 10px 10px 0px 10px;
     border-radius: 5px;
-    background-color: #2D3748; /* Fundo branco quando edita */
-    color: #FFF; /* Letra preta pra ler bem */
+    background-color: #2D3748;
+    /* Fundo branco quando edita */
+    color: #FFF;
+    /* Letra preta pra ler bem */
     outline: none;
-    border: 2px solid #FFF; /* Borda azul/cinza de foco */
+    border: 2px solid #FFF;
+    /* Borda azul/cinza de foco */
     width: auto;
     min-width: 100px;
     cursor: text;
@@ -335,7 +345,7 @@
     gap: 0px;
 }
 
-.nova-tarefa div{
+.nova-tarefa div {
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -353,22 +363,22 @@
     left: 0;
     width: 100%;
     height: 100%;
-    
+
     /* Fundo escuro transparente (overlay) */
-    background-color: rgba(0, 0, 0, 0.65); 
-    
+    background-color: rgba(0, 0, 0, 0.65);
+
     /* Centraliza o pop-up box */
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     /* Transição suave e começa invisível */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    
+
     /* Garante que fique acima de todos os outros elementos */
-    z-index: 2000; 
+    z-index: 2000;
 }
 
 /* 2. ESTADO ATIVO (VISÍVEL) */
@@ -382,7 +392,7 @@
     background-color: #ffffff;
     padding: 30px;
     border-radius: 12px;
-    width: 380px; 
+    width: 380px;
     max-width: 90%;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     text-align: center;
@@ -390,7 +400,8 @@
 
 .pop-up-conteudo h2 {
     margin-top: 0;
-    color: #b91c1c; /* Título em tom de perigo */
+    color: #b91c1c;
+    /* Título em tom de perigo */
     font-size: 1.4rem;
 }
 
@@ -419,7 +430,8 @@
 }
 
 .btn-confirmar {
-    background-color: #ef4444; /* Vermelho: Remover */
+    background-color: #ef4444;
+    /* Vermelho: Remover */
     color: white;
 }
 
@@ -428,7 +440,8 @@
 }
 
 .btn-cancelar {
-    background-color: #e5e7eb; /* Cinza: Cancelar */
+    background-color: #e5e7eb;
+    /* Cinza: Cancelar */
     color: #374151;
 }
 
@@ -442,19 +455,23 @@
 .cdk-drag-preview {
     box-sizing: border-box;
     border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra forte pra parecer que está flutuando */
-    background-color: #fff; /* Garante fundo branco */
-    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Sombra forte pra parecer que está flutuando */
+    background-color: #fff;
+    /* Garante fundo branco */
+
     /* Um leve giro pra dar sensação de movimento natural */
-    transform: rotate(2deg); 
+    transform: rotate(2deg);
 }
 
 /* 2. O BURACO ONDE ELE VAI CAIR (PLACEHOLDER) */
 /* É o espaço cinza que abre na lista enquanto você segura o item */
 .cdk-drag-placeholder {
-    opacity: 0.3; /* Deixa meio transparente */
+    opacity: 0.3;
+    /* Deixa meio transparente */
     background: #ccc;
-    border: 2px dashed #999; /* Borda pontilhada clássica */
+    border: 2px dashed #999;
+    /* Borda pontilhada clássica */
     border-radius: 8px;
 }
 
@@ -468,4 +485,29 @@
 /* Faz o card viajar suavemente do mouse até o buraco quando você solta */
 .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+
+.menu-detalhes-flutuante{
+    position: fixed;
+    /* 2. ESSENCIAL: Adiciona a transição suave */
+    transition: top 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    left 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+    
+    /* Garante que o menu está acima de todos os outros elementos do quadro */
+    z-index: 3000;
+
+}
+.menu-detalhes-flutuante {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.menu-detalhes-flutuante.ativo {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+        top 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+        left 0.3s cubic-bezier(0.42, 0, 0.58, 1);
 }
