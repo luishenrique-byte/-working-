@@ -82,6 +82,7 @@
     [style.top.px]="menuTop" 
     [style.left.px]="menuLeft" 
     (clickOutside)="fecharMenuDetalhes()" 
+    (aoExcluir)="deletarTarefa()"
     class="menu-detalhes-flutuante">></app-task-details>
 
     <!--POP PARA CONFIRMAR A REMOÇÃO DA TAREFA-->

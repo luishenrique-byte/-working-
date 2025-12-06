@@ -207,7 +207,69 @@ export class QuadroComponent {
   //==============================
   //LÓGICA PARA REMOVER TAREFA
   //==============================
+  tarefaMenuAbertoId: number | null = null; // ID da tarefa aberta (ou null)
 
+  deletarTarefa(){
+
+    
+    this.Colunas.forEach(coluna => {
+      
+      const idTarefa = coluna.tarefas.findIndex( t=> t.id=== this.tarefaMenuAbertoId); //findIndex já função pronta q returna o index
+      
+      if(idTarefa>-1){
+        
+        coluna.tarefas.splice(idTarefa, 1)
+        
+      }
+    });
+    
+    this.fecharMenuDetalhes();
+    console.log('aaaaaaaa');
+
+  }
+
+
+  
+  //======================================
+  //LÓGICA PARA MENU FLUTUANTE DAS TAREFAS
+  //======================================
+  
+  menuTop: number = 0; // para guardar a posição vertical.
+  menuLeft: number = 0; // para guardar a posição horizontal.
+  
+  abrirMenuDetalhes(event: MouseEvent, tarefa: Tarefa) {
+    event.stopPropagation(); // Impede cliques indesejados
+    
+    // 1. Se clicou no mesmo botão, fecha o menu (Toggle)
+    if (this.tarefaMenuAbertoId === tarefa.id) {
+      this.fecharMenuDetalhes();
+      return;
+    }
+    
+    // 2. Define qual tarefa está aberta
+    this.tarefaMenuAbertoId = tarefa.id;
+    
+    // 3. A MATEMÁTICA DO POSICIONAMENTO 📐
+    // Pega o elemento do botão clicado
+    const botao = event.currentTarget as HTMLElement;
+    const rect = botao.getBoundingClientRect();
+    
+    // CALCULE AQUI ONDE VOCÊ QUER O MENU (Sua "Área Vermelha")
+    
+    // TOP: Logo abaixo do botão (+ um espacinho de 5px)
+    this.menuTop = rect.bottom - 40;
+    
+    // LEFT: Alinhado à direita do botão? Ou à esquerda?
+    // Exemplo: Alinhado com o lado esquerdo do botão, mas puxando um pouco pra esquerda pra caber
+    // Ajuste esse "- 150" dependendo da largura do seu menu
+    this.menuLeft = rect.left + 25;
+  }
+  
+  fecharMenuDetalhes() {
+    this.tarefaMenuAbertoId = null;
+  }
+  
+  
   //===========================
   //LÓGICA PARA RISCAR A TAREFA
   //===========================
@@ -216,49 +278,7 @@ export class QuadroComponent {
     tarefa.concluida = !tarefa.concluida
 
   }
-
-  //======================================
-  //LÓGICA PARA MENU FLUTUANTE DAS TAREFAS
-  //======================================
-
-  tarefaMenuAbertoId: number | null = null; // ID da tarefa aberta (ou null)
-  menuTop: number = 0; // para guardar a posição vertical.
-  menuLeft: number = 0; // para guardar a posição horizontal.
-
-  abrirMenuDetalhes(event: MouseEvent, tarefa: Tarefa) {
-    event.stopPropagation(); // Impede cliques indesejados
-
-    // 1. Se clicou no mesmo botão, fecha o menu (Toggle)
-    if (this.tarefaMenuAbertoId === tarefa.id) {
-      this.fecharMenuDetalhes();
-      return;
-    }
-
-    // 2. Define qual tarefa está aberta
-    this.tarefaMenuAbertoId = tarefa.id;
-
-    // 3. A MATEMÁTICA DO POSICIONAMENTO 📐
-    // Pega o elemento do botão clicado
-    const botao = event.currentTarget as HTMLElement;
-    const rect = botao.getBoundingClientRect();
-
-    // CALCULE AQUI ONDE VOCÊ QUER O MENU (Sua "Área Vermelha")
-
-    // TOP: Logo abaixo do botão (+ um espacinho de 5px)
-    this.menuTop = rect.bottom - 40;
-
-    // LEFT: Alinhado à direita do botão? Ou à esquerda?
-    // Exemplo: Alinhado com o lado esquerdo do botão, mas puxando um pouco pra esquerda pra caber
-    // Ajuste esse "- 150" dependendo da largura do seu menu
-    this.menuLeft = rect.left + 25;
-  }
-
-  fecharMenuDetalhes() {
-    this.tarefaMenuAbertoId = null;
-  }
-
-
-
+  
   //==============================
   //LÓGICA PARA MOVER AS TAREFA
   //==============================
