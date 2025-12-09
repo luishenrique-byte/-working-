@@ -1,15 +1,25 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-explorar-projetos',
+  standalone: true,
   imports: [CommonModule,FormsModule],
   templateUrl: './explorar-projetos.component.html',
   styleUrl: './explorar-projetos.component.css'
 })
 export class ExplorarProjetosComponent {
   termoBusca: string = '';
+
+  constructor(private router: Router) {}
+
+  // 3. ATUALIZAR A FUNÇÃO
+  solicitarEntrada(projeto: any) {
+    // Navega para a rota passando o ID do projeto clicado
+    this.router.navigate(['/detalhes-projeto', projeto.id]);
+  }
 
   // Projetos da comunidade (Dados Fakes)
   projetosComunidade = [
@@ -190,11 +200,4 @@ export class ExplorarProjetosComponent {
     },
   ];
 
-  // Lógica do Botão
-  solicitarEntrada(projeto: any) {
-    if(!projeto.solicitado) {
-        projeto.solicitado = true;
-        alert(`Solicitação enviada para o projeto "${projeto.titulo}"! O dono irá analisar.`);
-    }
-  }
 }

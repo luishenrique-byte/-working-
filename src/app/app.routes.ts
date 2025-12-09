@@ -4,6 +4,7 @@ import { WorkspaceComponent } from './pages/workspace/workspace.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
 import { ExplorarProjetosComponent } from './pages/explorar-projetos/explorar-projetos.component';
+import { DetalhesProjetosComponent } from './pages/explorar-projetos/component/detalhes-projetos/detalhes-projetos.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -11,6 +12,7 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'sign-up', component: SignUpComponent},
     {path: 'explorar-projetos', component: ExplorarProjetosComponent},
+    {path: 'detalhes-projeto/:id', component: DetalhesProjetosComponent },
     {path: '**', redirectTo: ''}
 
 ];
