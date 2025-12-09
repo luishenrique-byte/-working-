@@ -185,6 +185,8 @@ button {
     color: #2D3748;
     font-size: 15px;
     font-style: normal;
+    /* ADICIONE ISSO AQUI 👇 */
+    white-space: pre-wrap; /* Respeita os Enters e quebras de linha do texto original */
     font-weight: 400;
     line-height: normal;
 }

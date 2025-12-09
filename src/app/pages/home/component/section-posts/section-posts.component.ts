@@ -5,42 +5,54 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-section-posts',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './section-posts.component.html',
   styleUrl: './section-posts.component.css'
 })
 export class SectionPostsComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [{
-    titulo: 'Criação e Implementação de Pontos de Troca Comunitários Solidários.',
-    data: '02/09/2025',
-    preco: 250,
-    descricao: 'Estamos em busca de um profissional altamente qualificado e experiente em edição de fotos para um projeto pontual. Precisamos editar 10 fotos, garantindo que todas elas sigam o mesmo tom e estilo visual das imagens que já possuímos. A padronização do tom é crucial para manter a coerência da nossa marca. <br> É Fundamental que o profissional demonstre expertise e um portfólio sólido na área. Tivemos uma experiência anterior insatisfatória, onde o trabalho não atendeu às expectativas, resultando em tempo e recursos perdidos. Por isso, a capacidade de entregar um trabalho de alta qualidade e com profissionalismo é nossa prioridade máxima...',
-    nome: 'Pedro Miguel',
-    cargo: 'Analista de dados',
-    avatar: 'assets/img/profile/homem-retrato-rindo.jpg',
-    pais: 'assets/img/icons/Icon Brasil.svg'
-  },
-  {
-    titulo: 'Criação e Implementação de Pontos de Troca Comunitários Solidários.',
-    data: '02/09/2025',
-    preco: 750,
-    descricao: 'Estamos em busca de um profissional altamente qualificado e experiente em edição de fotos para um projeto pontual. Precisamos editar 10 fotos, garantindo que todas elas sigam o mesmo tom e estilo visual das imagens que já possuímos. A padronização do tom é crucial para manter a coerência da nossa marca. <br> É Fundamental que o profissional demonstre expertise e um portfólio sólido na área. Tivemos uma experiência anterior insatisfatória, onde o trabalho não atendeu às expectativas, resultando em tempo e recursos perdidos. Por isso, a capacidade de entregar um trabalho de alta qualidade e com profissionalismo é nossa prioridade máxima...',
-    nome: 'Pedro Miguel',
-    cargo: 'Desenvolvedor Front-end',
-    avatar: 'assets/img/profile/homem-retrato-rindo.jpg',
-    pais: 'assets/img/icons/Icon Brasil.svg'
-  },
-  {
-    titulo: 'Criação e Implementação de Pontos de Troca Comunitários Solidários.',
-    data: '02/09/2025',
-    preco: 500,
-    descricao: 'Estamos em busca de um profissional altamente qualificado e experiente em edição de fotos para um projeto pontual. Precisamos editar 10 fotos, garantindo que todas elas sigam o mesmo tom e estilo visual das imagens que já possuímos. A padronização do tom é crucial para manter a coerência da nossa marca. <br> É Fundamental que o profissional demonstre expertise e um portfólio sólido na área. Tivemos uma experiência anterior insatisfatória, onde o trabalho não atendeu às expectativas, resultando em tempo e recursos perdidos. Por isso, a capacidade de entregar um trabalho de alta qualidade e com profissionalismo é nossa prioridade máxima',
-    nome: 'Pedro Miguel',
-    cargo: 'Desgniner',
-    avatar: 'assets/img/profile/homem-retrato-rindo.jpg',
-    pais: 'assets/img/icons/Icon Brasil.svg'
-  }
+      titulo: 'Redesign de Identidade Visual para Startup de Café',
+      data: '10/12/2025',
+      preco: 1200,
+      // Usando crases (backticks) para permitir quebra de linha real
+      descricao: `Procuramos um Designer Gráfico criativo para reformular a marca da "Coffee & Code". O projeto inclui novo logo, paleta de cores e design de embalagens sustentáveis.
+
+O estilo desejado é minimalista e moderno, fugindo do óbvio. É essencial ter experiência com branding para o setor alimentício e enviar portfólio com projetos similares.`,
+      nome: 'Fernando Oliveira',
+      cargo: 'Co-fundador',
+      // Dica: Se tiver outras fotos, troque o caminho aqui. Mantive a original para não quebrar.
+      avatar: 'assets/img/profile/9837.jpg', 
+      pais: 'assets/img/icons/Icon Brasil.svg'
+    },
+    {
+      titulo: 'Desenvolvimento de E-commerce Full Stack',
+      data: '12/12/2025',
+      preco: 4500,
+      descricao: `Preciso de um desenvolvedor experiente para criar uma loja virtual do zero. O foco é performance, SEO e responsividade mobile.
+
+Requisitos Técnicos:
+- Front-end em Angular ou React;
+- Back-end em Node.js;
+- Integração com gateway de pagamento (Stripe/Mercado Pago).
+O prazo estimado para o MVP é de 2 meses.`,
+      nome: 'Roberto Santos',
+      cargo: 'Gerente de Produto',
+      avatar: 'assets/img/profile/homem-retrato-rindo.jpg',
+      pais: 'assets/img/icons/Icon Brasil.svg'
+    },
+    {
+      titulo: 'Edição de Vídeo para Canal de Viagens',
+      data: '14/12/2025',
+      preco: 350,
+      descricao: `Busco editor de vídeo para vlog de viagens no YouTube. São 4 vídeos por mês, com duração média de 10 a 15 minutos cada.
+
+Necessário saber fazer cortes dinâmicos, inserção de B-roll, trilha sonora e legendas animadas. O material bruto será enviado via Drive. Procuramos alguém para parceria de longo prazo.`,
+      nome: 'Julia Mendes',
+      cargo: 'Criadora de Conteúdo',
+      avatar: 'assets/img/profile/jovem-mulher-feliz-na-camisola.jpg',
+      pais: 'assets/img/icons/Icon Brasil.svg'
+    }
   ];
 
 
@@ -50,7 +62,7 @@ export class SectionPostsComponent implements OnInit, OnDestroy {
 
   public currentIndex = 0;
   public isFading = false;
-  
+
   // Adicione uma variável para guardar o timer
   private slideInterval: any;
 
@@ -68,11 +80,11 @@ export class SectionPostsComponent implements OnInit, OnDestroy {
   // função para INICIAR o slide automático
   public startAutoSlide(): void {
     // Limpa qualquer timer antigo para não duplicar
-    this.stopAutoSlide(); 
-    
+    this.stopAutoSlide();
+
     this.slideInterval = setInterval(() => {
       this.changePost('next');
-    }, 3000); 
+    }, 3000);
   }
 
   // 7. Crie a função para PARAR o slide automático
@@ -82,7 +94,7 @@ export class SectionPostsComponent implements OnInit, OnDestroy {
     }
   }
 
-  
+
   public changePost(direction: 'next' | 'prev') {
     if (this.isFading) return;
 
@@ -107,13 +119,13 @@ export class SectionPostsComponent implements OnInit, OnDestroy {
     const observador = new IntersectionObserver((entradas) => {
       entradas.forEach(entrada => {
         if (entrada.isIntersecting) {
-          
+
           // Adiciona a classe .aparecer NA SECTION INTEIRA
           entrada.target.classList.add('aparecer');
 
           // Opcional: Se quiser animar os cards também, pode buscar eles aqui
           // e adicionar a classe neles, mas as barras já vão funcionar.
-          
+
           observador.unobserve(entrada.target);
         }
       });
